@@ -12,14 +12,20 @@
         </div>
     </div>
     <div class="mdc-layout-grid__inner">
-        <div class="mdc-layout-grid__cell">
+        <label class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4 mdc-text-field mdc-text-field--filled">
+            <span class="mdc-text-field__ripple"></span>
+            <span class="mdc-floating-label" id="api-key">API Key</span>
+            <input class="mdc-text-field__input" type="text" aria-labelledby="api-key">
+            <span class="mdc-line-ripple"></span>
+        </label>
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--align-middle">
             <button class="mdc-button mdc-button--raised">
-                <span class="mdc-button__label">Login</span>
+                <span class="mdc-button__label">Save</span>
             </button>
         </div>
     </div>
 </div>
 
-<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+<script src="./dist/options.bundle.js"></script>
 </body>
 </html>
