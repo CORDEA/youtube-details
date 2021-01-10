@@ -1,14 +1,16 @@
 {
-  "name": "YouTube Details",
-  "version": "0.0.1",
-  "description": "",
-  "background": {
-    "service_worker": "background.bundle.js"
-  },
-  "options_page": "options.html",
-  "permissions": [
-    "storage"
-  ],
-  "host_permissions": [],
-  "manifest_version": 3
+    "name": "YouTube Details",
+    "version": "0.0.1",
+    "description": "",
+    "background": {
+        "scripts": ["js/background.js"],
+        "persistent": false
+    },
+    "options_page": "options.html",
+    "permissions": [
+        "tabs",
+        "storage",
+        "<all_urls>"
+    ],
+    "manifest_version": 2
 }
