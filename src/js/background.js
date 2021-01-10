@@ -1,3 +1,5 @@
+import {findVideo} from "./youtube_api";
+
 const API_KEY = "apiKey";
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
@@ -40,5 +42,10 @@ chrome.contextMenus.onClicked.addListener(function (info) {
     if (!id) {
         return;
     }
-    // TODO
+    chrome.storage.local.get([API_KEY], async function (result) {
+        const video = findVideo(result[API_KEY], id);
+        if (video) {
+            // TODO
+        }
+    });
 });
