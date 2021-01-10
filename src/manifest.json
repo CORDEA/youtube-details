@@ -12,6 +12,7 @@
   "permissions": [
     "tabs",
     "storage",
+    "contextMenus",
     "<all_urls>"
   ],
   "manifest_version": 2

@@ -17,3 +17,19 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     }
     return true;
 });
+
+chrome.runtime.onInstalled.addListener(function () {
+    chrome.contextMenus.create({
+        id: 'youtube-details',
+        title: 'Check details of the video',
+        contexts: ['selection']
+    }, function () {
+        if (chrome.extension.lastError) {
+            console.log(chrome.extension.lastError.message);
+        }
+    });
+});
+
+chrome.contextMenus.onClicked.addListener(function (info) {
+    // TODO
+})
