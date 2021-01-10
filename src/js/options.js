@@ -1,12 +1,10 @@
 import {MDCTextField} from "@material/textfield";
 
-const API_KEY = "apiKey";
-
 const textField = new MDCTextField(document.querySelector(".mdc-text-field"));
 const button = document.getElementById("button");
 
-chrome.storage.sync.get([API_KEY], function (items) {
-    textField.value = items[API_KEY];
+chrome.runtime.sendMessage({command: 'restoreApiKey'}, function (response) {
+    textField.value = response;
 });
 
 button.addEventListener("click", function () {
@@ -14,9 +12,7 @@ button.addEventListener("click", function () {
     if (key.length <= 0) {
         return;
     }
-    const sets = {};
-    sets[API_KEY] = key;
-    chrome.storage.sync.set(sets, function () {
+    chrome.runtime.sendMessage({command: 'storeApiKey', apiKey: key}, function () {
         button.disabled = true;
     });
 });
