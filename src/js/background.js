@@ -31,5 +31,14 @@ chrome.runtime.onInstalled.addListener(function () {
 });
 
 chrome.contextMenus.onClicked.addListener(function (info) {
+    const url = info.linkUrl;
+    if (!url.startsWith('https://www.youtube.com/watch')) {
+        return;
+    }
+    const parsed = new URL(url);
+    const id = parsed.searchParams.get('v');
+    if (!id) {
+        return;
+    }
     // TODO
-})
+});
