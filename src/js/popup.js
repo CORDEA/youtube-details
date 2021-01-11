@@ -1,5 +1,6 @@
 window.render = function (data) {
-    const d = [
+    console.log(data);
+    const details = [
         {
             title: 'Details',
             contents: [
@@ -13,7 +14,7 @@ window.render = function (data) {
                 },
                 {
                     label: 'TAGS',
-                    content: data.snippet.tags.join(', ')
+                    content: data.snippet.tags ? data.snippet.tags.join(', ') : ''
                 },
                 {
                     label: 'PUBLISHED AT',
@@ -24,8 +25,11 @@ window.render = function (data) {
                     content: data.contentDetails.duration
                 }
             ]
-        },
-        {
+        }
+    ];
+
+    if (data.liveStreamingDetails) {
+        details.push({
             title: 'Live Streaming Details',
             contents: [
                 {
@@ -41,10 +45,10 @@ window.render = function (data) {
                     content: data.liveStreamingDetails.concurrentViewers
                 }
             ]
-        }
-    ];
+        });
+    }
 
-    d.forEach(function (item, i) {
+    details.forEach(function (item, i) {
         const container = document.getElementById("container");
         const containerNode = container.content.cloneNode(true);
         containerNode.querySelector('.title').textContent = item.title;
