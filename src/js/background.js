@@ -43,7 +43,7 @@ chrome.contextMenus.onClicked.addListener(function (info) {
         return;
     }
     chrome.storage.local.get([API_KEY], async function (result) {
-        const video = findVideo(result[API_KEY], id);
+        const video = await findVideo(result[API_KEY], id);
         if (video) {
             chrome.browserAction.openPopup(function (view) {
                 view.render(video);
