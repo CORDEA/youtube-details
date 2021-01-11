@@ -48,14 +48,14 @@ window.render = function (data) {
         });
     }
 
-    details.forEach(function (item, i) {
-        const container = document.getElementById("container");
+    details.forEach((item, i) => {
+        const container = document.getElementById('container');
         const containerNode = container.content.cloneNode(true);
         containerNode.querySelector('.title').textContent = item.title;
         document.body.appendChild(containerNode);
 
-        item.contents.forEach(function (content) {
-            const listItem = document.getElementById("list-item");
+        item.contents.forEach(content => {
+            const listItem = document.getElementById('list-item');
             const listItemNode = listItem.content.cloneNode(true);
             listItemNode.querySelector('.label').textContent = content.label;
             listItemNode.querySelector('.content').textContent = content.content;
