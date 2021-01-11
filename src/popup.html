@@ -7,6 +7,20 @@
     <title>YouTube Details</title>
 </head>
 <body class="mdc-typography">
+<template id="container">
+    <h6 class="mdc-typography--headline6 title"></h6>
+    <ul class="mdc-list mdc-list--two-line list">
+    </ul>
+</template>
+<template id="list-item">
+    <li class="mdc-list-item">
+        <span class="mdc-list-item__ripple"></span>
+        <span class="mdc-list-item__text">
+          <span class="mdc-list-item__secondary-text label"></span>
+          <span class="mdc-list-item__primary-text content"></span>
+        </span>
+    </li>
+</template>
 <script src="./dist/popup.bundle.js"></script>
 </body>
 </html>
